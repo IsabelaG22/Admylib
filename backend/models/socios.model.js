@@ -1,33 +1,43 @@
-
 const mongoose = require('../config/database');
 
 const SociosSchema = new mongoose.Schema({
-    ccSocio:{
-        type:Number,
-        required:[true, 'el documento debe ser obligatorio'],
-        unique:true,
+    documento: {
+        type: Number,
+        required: [true, 'Ingresar el documento es obligatorio'],
+        unique: [true, 'Este documento ya está registrado'],
     },
     nombre:{
-        type:String,
-        maxlength:100,
-        required:[true, 'Este campo es obligatorio']
+        type: String,
+        maxlength: 100,
+        required: [true, 'Debe ingresar el nombre completo']
     },
     telefono:{
-        type:Number,
-        required:true,
-        unique:true,
+        type: Number,
+        required: true,
     },
     direccion:{
-        type:String,
-        required:true,
+        type: String,
+        required: true,
     },
-
-    reservas: [{type: Schema.Types.ObjectId, ref: 'Reserva'}],
-    prestamos: [{type:Schema.Types.ObjectId, ref: 'Prestamo'}],
-    multas:[{type:Schema.Types.ObjectId, ref: 'Multa'}]
-
+    reservas: [
+        {
+            type: Schema.Types.ObjectId,
+             ref: 'reservas'
+            }
+        ],
+    prestamos: [
+        {
+            type: Schema.Types.ObjectId,
+             ref: 'prestamos'
+            }
+        ],
+    multas: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'multas'
+        }
+    ]
 });
 
 const socios = mongoose.model('socios', SociosSchema);
-
 module.exports = socios;

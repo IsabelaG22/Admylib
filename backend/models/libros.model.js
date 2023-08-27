@@ -1,4 +1,5 @@
 const mongoose = require ('../config/database');
+const { Schema } = mongoose;
 
 const LibrosSchema = new mongoose.Schema({
     isbn: {

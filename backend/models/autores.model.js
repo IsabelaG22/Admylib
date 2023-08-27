@@ -4,18 +4,16 @@ const AutoresSchema = new mongoose.Schema({
     nombreCompleto:{
         type:String,
         maxlength:100,
-        required:[true, 'Este campo es obligatorio']
+        required:[true, 'El nombre de autor es obligatorio']
     },
     fechaNacimiento:{
         typo:Date,
-        required:true,
+        required:[true, 'Ingresar fecha de nacimiento del autor'],
     },
     fechaDeceso:{
         typo:Date,
     },
-
 });
 
 const autores = mongoose.model('autores', AutoresSchema);
-
 module.exports = autores;

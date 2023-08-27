@@ -1,6 +1,5 @@
 const mongoose = require('../config/database')
 
-
 const PrestamoSchema = new mongoose.Schema({
     fechaPrestamo: {
         type: Date,
@@ -19,13 +18,11 @@ const PrestamoSchema = new mongoose.Schema({
         type: Schema.Types.ObjectId,
         ref: 'socios',
         required: [true, 'Ingresa Usuario encargado del prestamo']
-
     },
     idLibro: {
         type: Schema.Types.ObjectId,
         ref: 'libros',
         required: [true, 'Ingresa id libro del prestamo']
-
     },
     idMulta: {
         type: Schema.Types.ObjectId, // identificador unico de un documento 

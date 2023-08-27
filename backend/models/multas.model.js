@@ -12,5 +12,5 @@ const MultaSchema = new mongoose.Schema({
     }
 });
 
-const Multas =mongoose.model('multas', MultaSchema)
-module.exports = Multas
+const multas = mongoose.model('multas', MultaSchema)
+module.exports = multas

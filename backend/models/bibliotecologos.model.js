@@ -1,40 +1,34 @@
 const mongoose = require('../config/database')
 
 const BibliotecologoSchema = new mongoose.Schema({
-    ccBibliotecologo: {
-        require:[true, 'Debe ingresar la cedula'],
-        unique: [true, 'Este documento ya se encuentra registrado'],
+    documento: {
         type: Number,
-        
+        require: [true, 'Debe ingresar el documento'],
+        unique: [true, 'Este documento ya se encuentra registrado'],
     },
     nombre: {
-        require:[true, 'Ingrese el nombre completo'],
         type: String,
+        require: [true, 'Ingrese el nombre completo'],
         maxLength: 100,
     },
     correo:{
-        require:[true, 'Ingresa un correo electronico'],
-        unique:[true, 'Este correo ya existe'],
-        type:String
-
+        type: String,
+        require: [true, 'Ingresa un correo electronico'],
+        unique: [true, 'Este correo ya existe'],
     },
-
-    contraseña:{
-        require:[true, 'Bebes ingresar una contraseña segura'],
-        type: String
-
+    password:{
+        type: String,
+        require: [true, 'Debes ingresar una contraseña segura'],
     },
-
     horarioEntrada: {
+        type: Date,  
         require:[true, 'Ingresa la hora de entrada del empleado'],
-        type: Date,
-        
     },
     horarioSalida: {
-        require:[true, 'Ingresa la hora de salida del empleado'],
         type: Date,
+        require:[true, 'Ingresa la hora de salida del empleado'],
     }
 });
 
-const Bibliotecologo = mongoose.model('bibliotecologos', BibliotecologoSchema)
-module.exports= Bibliotecologo
+const bibliotecologos = mongoose.model('bibliotecologos', BibliotecologoSchema)
+module.exports= bibliotecologos

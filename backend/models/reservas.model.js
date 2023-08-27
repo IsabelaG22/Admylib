@@ -1,9 +1,7 @@
 const mongoose = require('../config/database')
 
-
 const ReservaSchema = new mongoose.Schema({
     fechaReserva: {
-
         type: Date,
         required: [true, 'Ingresa fecha que se realizo la reserva']
     },
@@ -24,5 +22,4 @@ const ReservaSchema = new mongoose.Schema({
 });
 
 const reservas = mongoose.model('reservas', ReservaSchema)
-
 module.exports = reservas
