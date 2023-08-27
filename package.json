@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "* Seguridad * Circulación * Reservas * Reportes * Sanciones * Catalogación",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "lint": "eslint . --ext .js",
+    "lint-fix": "eslint . --ext .js --fix"
+  },
   "keywords": [],
   "author": "Esteban García, Isabela Grisales, Miguel Ángel Álvarez",
   "license": "ISC",
